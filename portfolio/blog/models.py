@@ -2,6 +2,14 @@ from django.db import models
 from django.utils import timezone
 
 
+class Tag(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=200, null=True, blank=True, default='')
+
+    def __str__(self):
+        return self.name
+
+
 class Post(models.Model):
     author = models.ForeignKey('auth.user')
     title = models.CharField(max_length=200)
@@ -16,11 +24,3 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-
-
-class Tag(models.Model):
-    name = models.CharField(max_length=50)
-    description = models.CharField(max_length=200, null=True, blank=True, default='')
-
-    def __str__(self):
-        return self.name
