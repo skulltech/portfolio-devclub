@@ -24,9 +24,20 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" name="submit" value="Send Message" class="btn btn-primary"
+                    <input type="submit" name="submit" value="Send Message" class="btn btn-primary" form="contactForm"
                            id="submit-id-submit"></div>
             </div>
         </div>
     </div>
+
+    <!-- list of messages -->
+    {% for message in messages %}
+
+        <div>
+            <h2><a href="">{{ message.title }}</a></h2>
+            <p>submitted: {{ message.submitted_date }}</p>
+            <p>{{ message.message }}</p>
+        </div>
+
+    {% endfor %}
 {% endblock %}

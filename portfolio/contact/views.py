@@ -5,14 +5,11 @@ from .models import ContactMessage
 
 
 def contact(request):
+    messages = ContactMessage.objects.filter(submitted_date__lte=timezone.now()).order_by('submitted_date')
     form = ContactForm(request.POST or None)
 
     if form.is_valid():
         message = form.save(commit=False)
         message.send()
 
-    return render(request, 'contact/contact.html', {'form': form})
-
-def messages_list(request):
-    messages = ContactMessage.objects.filter(submitted_date__lte=timezone.now()).order_by('submitted_date')
-    return render(request, 'contact/messages_list.html', {'messages': messages})
+    return render(request, 'contact/contact.html', {'form': form, 'messages': messages})
