@@ -8,7 +8,7 @@ from crispy_forms.layout import Submit
 class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactMessage
-        exclude = ['submit_date']
+        exclude = ['submitted_date']
 
     def __init__(self, *args, **kwargs):
         super(ContactForm, self).__init__(*args, **kwargs)

@@ -1,0 +1,13 @@
+{% extends 'contact/base.html' %}
+
+{% block content %}
+    {% for message in messages %}
+
+        <div>
+            <h2><a href="">{{ message.title }}</a></h2>
+            <p>submitted: {{ message.submitted_date }}</p>
+            <p>{{ message.message }}</p>
+        </div>
+
+    {% endfor %}
+{% endblock %}
