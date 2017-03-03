@@ -16,5 +16,3 @@ class ContactForm(forms.ModelForm):
         self.helper.form_id = 'contactForm'
         self.helper.form_method = 'post'
         self.helper.form_action = reverse('contact')
-
-        self.helper.add_input(Submit('submit', 'Send Message'))
