@@ -1,11 +1,13 @@
 {% extends 'projects/base.html' %}
 
 {% block content %}
+    <div class="row"><div class="col-4">
+        <h2 style="font-family: 'Oswald', sans-serif;"><a href="https://github.com/SkullTech">My Github Repos</a></h2>
+    </div></div>
 
     <div id="github-repositories-list">
         {% for repo in repos %}
-
-            <li class="col-12 d-block width-full py-4 border-bottom public source">
+            <li class="col-md-8 d-block width-full py-4 border-bottom public source offset-md-4">
                 <div class="d-inline-block mb-1">
                     <h3><a href="{{ repo.html_url }}">{{ repo.name }}</a></h3>
                 </div>
