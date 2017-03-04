@@ -2,38 +2,30 @@
 
 {% block content %}
 
-    <div id="repositories-list">
+    <div id="github-repositories-list">
+        {% for repo in repos %}
 
             <li class="col-12 d-block width-full py-4 border-bottom public source">
                 <div class="d-inline-block mb-1">
-                    <h3>
-                        <a href="/SkullTech/portfolio-devclub">portfolio-devclub</a>
-                    </h3>
+                    <h3><a href="{{ repo.html_url }}">{{ repo.name }}</a></h3>
                 </div>
                 <div>
                     <p class="col-9 d-inline-block text-gray mb-2 pr-4">
-                        Portfolio website. Assignment for IITD DevClub recruitment.
+                        {{ repo.description  }}
                     </p>
-
-                    <div class="col-3 float-right text-right">
-                        <poll-include-fragment
-                                src="/SkullTech/portfolio-devclub/graphs/participation?h=28&amp;type=sparkline&amp;w=155">
-                        </poll-include-fragment>
-                    </div>
                 </div>
                 <div class="f6 text-gray mt-2">
                     <span class="repo-language-color ml-0" style="background-color:#3572A5;"></span>
-                    <span class="mr-3">Python</span>
-                    <a class="muted-link tooltipped tooltipped-s mr-3" href="/SkullTech/portfolio-devclub/stargazers"
-                       aria-label="Stargazers">
-                        <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1"
-                             viewBox="0 0 14 16" width="14">
+                    <span class="mr-3">{{ repo.language }}</span>
+                    <a class="muted-link tooltipped tooltipped-s mr-3" href="{{ repo.stargazers_url }}" aria-label="Stargazers">
+                        <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1" viewBox="0 0 14 16" width="14">
                             <path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"/>
-                        </svg>1</a>
-
-                    Updated
-                    <relative-time datetime="2017-03-04T12:03:20Z">Mar 4, 2017</relative-time>
+                        </svg>
+                        {{ repo.stargazers  }}
+                    </a>
+                    Updated <time>{{ repo.updated_at.date }}</time>
                 </div>
             </li>
-    
+
+        {% endfor %}
 {% endblock %}

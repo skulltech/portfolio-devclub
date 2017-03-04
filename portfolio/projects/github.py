@@ -2,9 +2,8 @@ from github3 import GitHub
 
 GITHUB_USERNAME = 'SkullTech'
 
-gh = GitHub()
-repos = gh.iter_user_repos(GITHUB_USERNAME)
 
-
-for repo in repos:
-    pass
+def repositories():
+    github = GitHub()
+    repos = github.iter_user_repos(GITHUB_USERNAME)
+    return repos
