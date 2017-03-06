@@ -89,7 +89,7 @@ ENV/
 .ropeproject
 
 # Sensitive credentials file
-portfolio/projects/credentials.py
+portfolio/projects/credentials.ini
 
 # Pycharm files
 portfolio/.idea/

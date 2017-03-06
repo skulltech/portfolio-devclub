@@ -1,8 +1,10 @@
+import configparser
 from github3 import login
-from .credentials import GITHUB_USERNAME, GITHUB_PASSWORD
 
 
 def repositories():
-    github = login(username=GITHUB_USERNAME, password=GITHUB_PASSWORD)
-    repos = github.iter_user_repos(GITHUB_USERNAME)
+    config = configparser.ConfigParser()
+    config.read('credentials.ini')
+    github = login(config['GITHUB']['USERNAME'], password=config['GITHUB']['PASSWORD'])
+    repos = github.iter_user_repos(config['GITHUB']['USERNAME'])
     return repos
