@@ -87,3 +87,9 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Sensitive credentials file
+portfolio/projects/credentials.py
+
+# Pycharm files
+portfolio/.idea/
